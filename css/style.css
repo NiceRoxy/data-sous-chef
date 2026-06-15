@@ -1,5 +1,5 @@
-/* ============================================================
-   DATA SOUS CHEF v3.1 — Light Mode · No Animations · Centred Hero
+﻿/* ============================================================
+   DATA SOUS CHEF v3.1 â€” Light Mode Â· No Animations Â· Centred Hero
    Background: #DAEDEA (lightest) | Text: #345463 (darkest)
    ============================================================ */
 
@@ -59,7 +59,7 @@ ul{list-style:none;}
 .btn-olive{background:var(--olive);color:#283818;box-shadow:0 2px 10px rgba(175,191,115,0.3);}
 .btn-olive:hover{background:#96a85c;transform:translateY(-2px);}
 
-/* Reveal: no animation — elements always visible */
+/* Reveal: no animation â€” elements always visible */
 .reveal,.reveal.visible{opacity:1;transform:none;}
 .reveal-delay-1,.reveal-delay-2,.reveal-delay-3,.reveal-delay-4{transition:none;}
 
@@ -83,7 +83,7 @@ ul{list-style:none;}
 .hero-inner{position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;text-align:center;width:100%;padding:80px 0;}
 .hero-copy{max-width:740px;width:100%;}
 .hero-eyebrow{margin-bottom:20px;}
-.hero-title{font-size:clamp(1.8rem,3.2vw,2.6rem);font-weight:900;line-height:1.15;color:var(--text-dark);margin-bottom:22px;letter-spacing:-0.02em;}
+.hero-title{font-size:clamp(1.9rem,3.8vw,2.7rem);font-weight:900;line-height:1.15;color:var(--text-dark);margin-bottom:22px;letter-spacing:-0.02em;}
 .hero-tagline{font-size:clamp(1rem,1.8vw,1.15rem);color:var(--text-muted);max-width:580px;margin:0 auto 36px;line-height:1.8;}
 .hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:52px;justify-content:center;}
 .hero-stats{display:flex;gap:48px;flex-wrap:wrap;justify-content:center;}
