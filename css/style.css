@@ -1,4 +1,4 @@
-﻿/* ============================================================
+/* ============================================================
    DATA SOUS CHEF v3.1 â€” Light Mode Â· No Animations Â· Centred Hero
    Background: #DAEDEA (lightest) | Text: #345463 (darkest)
    ============================================================ */
@@ -66,9 +66,9 @@ ul{list-style:none;}
 /* NAVBAR */
 #navbar{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(255,255,255,0.96);border-bottom:1px solid var(--border);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);transition:var(--t);}
 #navbar.scrolled{box-shadow:var(--shadow-sm);}
-.nav-inner{display:flex;align-items:center;justify-content:space-between;height:68px;}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;height:88px;}
 .nav-logo{display:flex;align-items:center;gap:10px;font-size:1.15rem;font-weight:800;color:var(--navy);}
-.nav-logo img{height:56px;width:auto;}
+.nav-logo img{height:80px;width:auto;mix-blend-mode:multiply;}
 .nav-links{display:flex;align-items:center;gap:28px;}
 .nav-links a{font-size:0.88rem;font-weight:500;color:var(--text-muted);transition:var(--t);}
 .nav-links a:hover{color:var(--navy);}
@@ -77,7 +77,7 @@ ul{list-style:none;}
 .hamburger span{display:block;width:24px;height:2px;background:var(--navy);border-radius:2px;transition:var(--t);}
 
 /* HERO */
-#hero{min-height:90vh;display:flex;align-items:center;padding-top:68px;background:var(--bg);position:relative;overflow:hidden;}
+#hero{min-height:90vh;display:flex;align-items:center;padding-top:88px;background:var(--bg);position:relative;overflow:hidden;}
 .hero-blob{position:absolute;top:-100px;right:-150px;width:650px;height:650px;background:radial-gradient(ellipse,var(--bg-mist) 0%,transparent 70%);border-radius:50%;pointer-events:none;}
 .hero-blob-2{position:absolute;bottom:-80px;left:-100px;width:450px;height:450px;background:radial-gradient(ellipse,var(--olive-light) 0%,transparent 70%);border-radius:50%;pointer-events:none;}
 .hero-inner{position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;text-align:center;width:100%;padding:80px 0;}
