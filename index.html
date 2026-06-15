@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DataSousChief — AI-Powered Data Cleaning for Researchers</title>
+  <meta name="description" content="DataSousChief generates bespoke, locally-runnable Python scripts to clean your research datasets — without you sharing a single row of data. Privacy-safe, AI-powered, researcher-friendly." />
+  <meta property="og:title" content="DataSousChief — AI-Powered Data Cleaning" />
+  <meta property="og:description" content="From messy data to clean scripts — without sharing a single row." />
+  <meta property="og:type" content="website" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'><rect width='40' height='40' rx='9' fill='%23345463'/><text x='50%25' y='56%25' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-weight='800' font-size='18' fill='%23AFBF73'>DS</text></svg>" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav id="navbar" role="navigation" aria-label="Main navigation">
+    <div class="container nav-inner">
+      <a href="#" class="nav-logo" id="nav-logo">
+        <img src="assets/logo.png" alt="DataSousChief logo" height="44" style="object-fit:contain;">
+      </a>
+      <ul class="nav-links" role="list">
+        <li><a href="#how-it-works">How It Works</a></li>
+        <li><a href="#features">Features</a></li>
+        <li><a href="#privacy">Privacy</a></li>
+        <li><a href="#recipes">Recipe Library</a></li>
+      </ul>
+      <div class="nav-cta">
+        <a href="#how-it-works" class="btn btn-ghost" id="nav-learn-more">Learn More</a>
+        <a href="#cta-banner" class="btn btn-primary" id="nav-get-started">Get Early Access</a>
+      </div>
+      <button class="hamburger" id="hamburger" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <div id="mobile-menu" style="display:none;flex-direction:column;background:rgba(255,255,255,0.98);backdrop-filter:blur(20px);border-top:1px solid rgba(52,84,99,0.1);padding:16px 28px 24px;">
+      <a href="#how-it-works" style="padding:14px 0;color:#345463;font-weight:500;border-bottom:1px solid rgba(52,84,99,0.09);">How It Works</a>
+      <a href="#features"     style="padding:14px 0;color:#345463;font-weight:500;border-bottom:1px solid rgba(52,84,99,0.09);">Features</a>
+      <a href="#privacy"      style="padding:14px 0;color:#345463;font-weight:500;border-bottom:1px solid rgba(52,84,99,0.09);">Privacy</a>
+      <a href="#recipes"      style="padding:14px 0;color:#345463;font-weight:500;border-bottom:1px solid rgba(52,84,99,0.09);">Recipes</a>
+      <a href="#cta-banner" class="btn btn-primary" style="margin-top:16px;justify-content:center;" id="mobile-cta">Get Early Access</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section id="hero" aria-labelledby="hero-heading">
+    <div class="hero-blob" aria-hidden="true"></div>
+    <div class="hero-blob-2" aria-hidden="true"></div>
+    <div class="container hero-inner">
+      <div class="hero-copy">
+        <div class="hero-eyebrow reveal">
+          <span class="badge">🤖 AI-Powered · Privacy-Safe · Researcher-Friendly</span>
+        </div>
+        <h1 class="hero-title reveal reveal-delay-1" id="hero-heading">
+          From messy data<br>to clean scripts —<br>
+          <span class="gradient-text">without sharing a single row.</span>
+        </h1>
+        <p class="hero-tagline reveal reveal-delay-2">
+          DataSousChief is the AI assistant that writes bespoke Python cleaning scripts for your research datasets. Just answer plain-English questions — no code, no data uploads, no privacy risk.
+        </p>
+        <div class="hero-actions reveal reveal-delay-3">
+          <a href="#cta-banner" class="btn btn-primary" id="hero-cta-primary">Get Early Access →</a>
+          <a href="#how-it-works" class="btn btn-ghost" id="hero-cta-secondary">See How It Works</a>
+        </div>
+        <div class="hero-stats reveal reveal-delay-4">
+          <div class="stat-item">
+            <span class="stat-number" data-count="10" data-suffix="+" id="stat-recipes">0+</span>
+            <span class="stat-label">Cleaning Recipes</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-number" data-count="5" data-suffix=" datasets" id="stat-datasets">0 datasets</span>
+            <span class="stat-label">Per Job</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-number" data-count="0" data-suffix=" rows shared" id="stat-rows">0 rows shared</span>
+            <span class="stat-label">Privacy Guarantee</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-visual reveal reveal-delay-2">
+        <div class="code-window" role="img" aria-label="Live Python script preview">
+          <div class="code-window-bar">
+            <div class="dot dot-red"></div>
+            <div class="dot dot-yellow"></div>
+            <div class="dot dot-green"></div>
+            <span class="code-window-title">cleaning_script_v1.py</span>
+          </div>
+          <div class="code-body" id="code-body" aria-live="polite"></div>
+          <span class="typing-cursor" id="typing-cursor" aria-hidden="true"></span>
+        </div>
+        <div class="recipe-chip chip-1" aria-hidden="true">✓ strip_whitespace()</div>
+        <div class="recipe-chip chip-2" aria-hidden="true">✓ deduplicate()</div>
+        <div class="recipe-chip chip-3" aria-hidden="true">✓ recode_missing()</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROBLEM -->
+  <section id="problem" aria-labelledby="problem-heading">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-badge reveal"><span class="badge">😤 The Problem</span></div>
+        <h2 class="section-title reveal reveal-delay-1" id="problem-heading">Research data is messy.<br>Cleaning it shouldn't be your job.</h2>
+        <p class="section-subtitle reveal reveal-delay-2">Researchers spend 60–80% of their time wrangling data instead of analysing it. The tools that exist either require coding expertise or demand you upload sensitive data to the cloud.</p>
+      </div>
+      <div class="problem-grid">
+        <div class="problem-card reveal reveal-delay-1">
+          <div class="problem-icon">🧩</div>
+          <h3>Inconsistent formats across files</h3>
+          <p>Date columns formatted three different ways. Categories spelled inconsistently. Column names that vary between academic years.</p>
+        </div>
+        <div class="problem-card reveal reveal-delay-2">
+          <div class="problem-icon">🔐</div>
+          <h3>Can't share data with cloud tools</h3>
+          <p>GDPR, IRB restrictions, and institutional governance policies mean you can't upload raw datasets to third-party platforms — even to get help cleaning them.</p>
+        </div>
+        <div class="problem-card reveal reveal-delay-3">
+          <div class="problem-icon">💻</div>
+          <h3>Writing the script yourself takes hours</h3>
+          <p>Even if you know Python, writing reliable, annotated cleaning code for a 50,000-row admin dataset is tedious, error-prone, and hard to audit later.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section id="how-it-works" aria-labelledby="how-heading">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-badge reveal"><span class="badge">⚙️ The Process</span></div>
+        <h2 class="section-title reveal reveal-delay-1" id="how-heading">Three steps to a clean dataset</h2>
+        <p class="section-subtitle reveal reveal-delay-2">No technical knowledge required. No data leaves your machine. Just answer questions in plain English and download your ready-to-run script.</p>
+      </div>
+      <div class="steps-grid">
+        <div class="step-card reveal reveal-delay-1">
+          <div class="step-number-wrap"><div class="step-number">1</div></div>
+          <div class="step-emoji">📋</div>
+          <h3>Answer a guided questionnaire</h3>
+          <p>Walk through a plain-English intake form covering your dataset's structure, column types, and known quality issues — like describing it to a colleague. No jargon, no uploads.</p>
+        </div>
+        <div class="step-card reveal reveal-delay-2">
+          <div class="step-number-wrap"><div class="step-number">2</div></div>
+          <div class="step-emoji">🤖</div>
+          <h3>AI generates your bespoke script</h3>
+          <p>Our hybrid engine applies vetted cleaning recipes for everything predictable, then uses Gemini AI only for custom transformations. Auditable, reliable, reproducible.</p>
+        </div>
+        <div class="step-card reveal reveal-delay-3">
+          <div class="step-number-wrap"><div class="step-number">3</div></div>
+          <div class="step-emoji">⬇️</div>
+          <h3>Download &amp; run locally</h3>
+          <p>Get a self-contained <code style="font-family:var(--mono);color:var(--navy);font-size:0.9em;">.py</code> script with inline comments explaining every step. Runs entirely on your machine — no cloud dependency.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURES -->
+  <section id="features" aria-labelledby="features-heading">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-badge reveal"><span class="badge">✨ Core Features</span></div>
+        <h2 class="section-title reveal reveal-delay-1" id="features-heading">Everything a researcher needs.<br>Nothing they don't.</h2>
+        <p class="section-subtitle reveal reveal-delay-2">Three carefully scoped MVP features — designed around how real research data cleaning actually works.</p>
+      </div>
+      <div class="features-grid">
+        <div class="feature-card reveal reveal-delay-1">
+          <div class="feature-icon-wrap">🗂️</div>
+          <h3>Guided Dataset Questionnaire</h3>
+          <p>A four-stage structured intake — covering your dataset overview, column inventory, data quality checklist (10 specific checks), and intended output format. Every question is plain English with an inline <strong style="color:var(--olive);">💡 hint</strong>.</p>
+          <div class="feature-tags">
+            <span class="feature-tag">Stage A: Overview</span>
+            <span class="feature-tag">Stage B: Columns</span>
+            <span class="feature-tag">Stage C: Quality</span>
+            <span class="feature-tag">Stage D: Output</span>
+          </div>
+        </div>
+        <div class="feature-card reveal reveal-delay-2">
+          <div class="feature-icon-wrap">🤖</div>
+          <h3>Hybrid Script Generation</h3>
+          <p>A two-layer engine: a library of vetted, deterministic cleaning recipes handles everything predictable. Gemini AI only writes code for what falls outside the recipe library — maximising trust and auditability.</p>
+          <div class="feature-tags">
+            <span class="feature-tag">Rule Matcher</span>
+            <span class="feature-tag">LLM Orchestrator</span>
+            <span class="feature-tag">Script Assembler</span>
+          </div>
+        </div>
+        <div class="feature-card reveal reveal-delay-3">
+          <div class="feature-icon-wrap">✅</div>
+          <h3>Validation &amp; Explanation Preview</h3>
+          <p>Before you download, the script is statically validated via Python's <code style="font-family:var(--mono);color:var(--navy);font-size:0.85em;">ast.parse()</code> and cross-checked against your column inventory. You get a plain-English step-by-step explanation too.</p>
+          <div class="feature-tags">
+            <span class="feature-tag">AST Static Analysis</span>
+            <span class="feature-tag">Column Inventory Check</span>
+            <span class="feature-tag">Step-by-Step Explanation</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRIVACY -->
+  <section id="privacy" aria-labelledby="privacy-heading">
+    <div class="container">
+      <div class="privacy-inner reveal">
+        <div>
+          <div class="privacy-badge"><span class="badge">🔒 Privacy by Design</span></div>
+          <h2 class="privacy-title" id="privacy-heading">Your data never leaves<br><span class="gradient-text">your machine. Ever.</span></h2>
+          <p class="privacy-desc">Built from the ground up for researchers working under GDPR, IRB restrictions, and institutional data governance. DataSousChief is structurally incapable of seeing your data — because we never ask for it.</p>
+          <ul class="privacy-checklist" role="list">
+            <li class="privacy-item"><div class="check">✓</div><span>No file upload — you describe your data in plain English, we never see it</span></li>
+            <li class="privacy-item"><div class="check">✓</div><span>Firebase stores only user-declared metadata — zero raw data values</span></li>
+            <li class="privacy-item"><div class="check">✓</div><span>Generated scripts run entirely on your local machine at runtime</span></li>
+            <li class="privacy-item"><div class="check">✓</div><span>Compliant with GDPR, IRB, and institutional data governance policies</span></li>
+            <li class="privacy-item"><div class="check">✓</div><span>Only generated <code style="font-family:var(--mono);color:var(--navy);">.py</code> scripts are stored in Firebase Storage</span></li>
+          </ul>
+        </div>
+        <div class="privacy-shield">
+          <div class="shield-card">
+            <div class="shield-icon">🛡️</div>
+            <div><h4>GDPR Safe</h4><p>No personal data is processed or stored. You retain full custody of your research files at all times.</p></div>
+          </div>
+          <div class="shield-card">
+            <div class="shield-icon">🔬</div>
+            <div><h4>IRB / Ethics Board Friendly</h4><p>Describe your dataset — don't share it. The questionnaire captures structural metadata only, never actual data values.</p></div>
+          </div>
+          <div class="shield-card">
+            <div class="shield-icon">🏛️</div>
+            <div><h4>Institutional Governance Ready</h4><p>Designed for researchers at universities and public bodies where data sharing outside approved systems is restricted.</p></div>
+          </div>
+          <div class="shield-card">
+            <div class="shield-icon">🧾</div>
+            <div><h4>Fully Auditable Scripts</h4><p>Every generated script includes inline comments. You know exactly what the code does before you run a single line.</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RECIPE LIBRARY -->
+  <section id="recipes" aria-labelledby="recipes-heading">
+    <div class="container">
+      <div class="recipes-layout">
+        <div class="recipes-copy reveal">
+          <span class="badge" style="margin-bottom:16px;display:inline-flex;">📚 Recipe Library</span>
+          <h2 id="recipes-heading">Vetted cleaning recipes.<br><span class="gradient-text">Battle-tested on education data.</span></h2>
+          <p>Our curated library of deterministic Python functions covers the most common admin data challenges — from recoding missing values to validating UK school reference numbers. Each recipe is versioned, tested, and annotated.</p>
+          <a href="#cta-banner" class="btn btn-primary" id="recipes-cta">Try It Free →</a>
+        </div>
+        <div class="reveal reveal-delay-2">
+          <div class="recipe-categories">
+            <div class="recipe-category">
+              <h4>🔧 Universal — Always Applied</h4>
+              <ul class="recipe-list">
+                <li class="recipe-item"><div class="recipe-dot"></div><span class="recipe-name">strip_whitespace(df)</span><span class="recipe-desc">Remove leading/trailing spaces</span></li>
+                <li class="recipe-item"><div class="recipe-dot"></div><span class="recipe-name">snake_case_columns(df)</span><span class="recipe-desc">Standardise column names</span></li>
+                <li class="recipe-item"><div class="recipe-dot"></div><span class="recipe-name">remove_exact_duplicates(df)</span><span class="recipe-desc">Drop identical rows</span></li>
+              </ul>
+            </div>
+            <div class="recipe-category">
+              <h4>🎯 Triggered by Your Quality Checklist</h4>
+              <ul class="recipe-list">
+                <li class="recipe-item"><div class="recipe-dot"></div><span class="recipe-name">recode_missing(df, codes)</span><span class="recipe-desc">Replace -99, N/A → NaN</span></li>
+                <li class="recipe-item"><div class="recipe-dot"></div><span class="recipe-name">standardise_categories(df)</span><span class="recipe-desc">Unify Male / male / M</span></li>
+                <li class="recipe-item"><div class="recipe-dot"></div><span class="recipe-name">parse_dates(df, formats)</span><span class="recipe-desc">Handle mixed date formats</span></li>
+                <li class="recipe-item"><div class="recipe-dot"></div><span class="recipe-name">coerce_numeric(df, cols)</span><span class="recipe-desc">Fix mixed-type columns</span></li>
+                <li class="recipe-item"><div class="recipe-dot"></div><span class="recipe-name">flag_out_of_range(df, min, max)</span><span class="recipe-desc">Catch impossible values</span></li>
+              </ul>
+            </div>
+            <div class="recipe-category">
+              <h4>🏫 Education &amp; University Domain</h4>
+              <ul class="recipe-list">
+                <li class="recipe-item"><div class="recipe-dot"></div><span class="recipe-name">validate_urn(df, col)</span><span class="recipe-desc">Check school URN format</span></li>
+                <li class="recipe-item"><div class="recipe-dot"></div><span class="recipe-name">standardise_ethnicity_dfe(df)</span><span class="recipe-desc">Map to DfE 2-digit codes</span></li>
+                <li class="recipe-item"><div class="recipe-dot"></div><span class="recipe-name">academic_year_to_numeric(df)</span><span class="recipe-desc">2022/23 → 2023</span></li>
+                <li class="recipe-item"><div class="recipe-dot"></div><span class="recipe-name">merge_on_urn(df1, df2)</span><span class="recipe-desc">Join datasets on school URN</span></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section id="testimonials" aria-labelledby="testimonials-heading">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-badge reveal"><span class="badge">💬 Researcher Voices</span></div>
+        <h2 class="section-title reveal reveal-delay-1" id="testimonials-heading">Built for researchers,<br>by people who get it.</h2>
+      </div>
+      <div class="testimonials-grid">
+        <div class="testimonial-card reveal reveal-delay-1">
+          <div class="stars" aria-label="5 stars">★★★★★</div>
+          <p class="testimonial-text">I spent three days trying to write a script to harmonise our KS4 dataset across five academic years. DataSousChief generated one in under two minutes that actually worked.</p>
+          <div class="testimonial-author">
+            <div class="author-avatar">SR</div>
+            <div class="author-info"><div class="name">Dr Sarah R.</div><div class="role">Senior Research Fellow, University of Leeds</div></div>
+          </div>
+        </div>
+        <div class="testimonial-card reveal reveal-delay-2">
+          <div class="stars" aria-label="5 stars">★★★★★</div>
+          <p class="testimonial-text">The privacy angle is what sold our ethics board. We can't upload pupil-level data anywhere — but with this tool, we never had to. The questionnaire is genuinely intuitive.</p>
+          <div class="testimonial-author">
+            <div class="author-avatar">MK</div>
+            <div class="author-info"><div class="name">Marcus K.</div><div class="role">Data Manager, Education Charity</div></div>
+          </div>
+        </div>
+        <div class="testimonial-card reveal reveal-delay-3">
+          <div class="stars" aria-label="5 stars">★★★★★</div>
+          <p class="testimonial-text">The step-by-step explanation was a revelation. I could verify exactly what the script would do before running it on our 80,000-row NPD extract. That transparency is rare.</p>
+          <div class="testimonial-author">
+            <div class="author-avatar">AP</div>
+            <div class="author-info"><div class="name">Amara P.</div><div class="role">Evaluation Lead, Government Research Unit</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA BANNER -->
+  <section id="cta-banner" aria-labelledby="cta-heading">
+    <div class="container">
+      <div class="cta-inner reveal">
+        <h2 id="cta-heading">Ready to cook up<br><span style="color:#AFBF73;">clean data?</span></h2>
+        <p>Join researchers and evaluators using DataSousChief to reclaim their time from data wrangling — without compromising privacy.</p>
+        <div class="cta-actions">
+          <a href="#" class="btn btn-olive" id="cta-request-access">Request Early Access →</a>
+          <a href="#how-it-works" class="btn" style="background:rgba(255,255,255,0.15);color:#fff;border:1.5px solid rgba(255,255,255,0.35);" id="cta-learn-more">See How It Works</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer id="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <div class="nav-logo" style="margin-bottom:12px;">
+            <img src="assets/logo.png" alt="DataSousChief" height="40" style="object-fit:contain;">
+          </div>
+          <p>AI-powered data cleaning scripts for researchers — generated without seeing a single row of your data.</p>
+        </div>
+        <div class="footer-links-group">
+          <div class="footer-col">
+            <h5>Product</h5>
+            <ul>
+              <li><a href="#how-it-works">How It Works</a></li>
+              <li><a href="#features">Features</a></li>
+              <li><a href="#recipes">Recipe Library</a></li>
+              <li><a href="#privacy">Privacy</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h5>Resources</h5>
+            <ul>
+              <li><a href="#">Documentation</a></li>
+              <li><a href="#">API Reference</a></li>
+              <li><a href="#">Changelog</a></li>
+              <li><a href="#">Status</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h5>Company</h5>
+            <ul>
+              <li><a href="#">About</a></li>
+              <li><a href="#">Blog</a></li>
+              <li><a href="#">Privacy Policy</a></li>
+              <li><a href="#">Terms of Service</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 DataSousChief. All rights reserved.</p>
+        <div class="footer-privacy-note"><span>🔒</span> No raw data is ever stored or processed on our servers.</div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
